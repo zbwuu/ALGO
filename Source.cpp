@@ -1,21 +1,22 @@
 #include<iostream>
 int main()
 {
-	int A[10] = {2,1,0,4,6,9,7,3,8,5}, j, mid, i,k;
-	for (j = 1; j < 10; j++)
+	int A[5] = { 99,11,11,69,4 };
+	int j,temp=0,k,v;
+	for (j = 0; j < 5; j++)
 	{
-		mid = A[j];
-		i = j - 1;
-		while (i >= 0 && A[i] > mid)
+		for (v=j+1; j<v && v<5; v++)
 		{
-			A[i + 1] = A[i];
-			i = i - 1;
-			A[i + 1] = mid;
+			temp = A[v];
+			if (temp < A[j])
+			{
+				A[v] = A[j];
+				A[j] = temp;
+			}
 		}
 	}
-	for (k = 0; k < 10; k++)
+	for (k = 0; k < 5; k++)
 	{
-		std::cout << A[k] << std::endl;
+		std::cout << A[k]<<" ";
 	}
-	return 0;
 }
